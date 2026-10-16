@@ -1,0 +1,254 @@
+/* Keep detail pages fixed to the viewport so transparent artwork canvas cannot create page scrolling. */
+@media (min-width: 721px) and (orientation: landscape) {
+  html:has(> body[data-detail-page]),
+  body[data-detail-page] {
+    overflow: hidden;
+  }
+
+  body[data-detail-page] > img {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+/* Keep the original two-column composition and scale its design coordinates below desktop width. */
+@media (max-width: 1919px) and (min-width: 721px) and (orientation: landscape) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body > img {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    max-width: none;
+    height: auto;
+    margin: 0;
+  }
+
+  body > .kibele {
+    position: absolute;
+    left: 4.739583vw;
+    top: 5.052083vw;
+    margin: 0;
+  }
+
+  body[data-detail-page="ic-anadolu"] > .kibele {
+    width: 28.125vw;
+    height: 39.635417vw;
+    background-size: 100% 100%;
+  }
+
+  body[data-detail-page="ege"] > .kibele {
+    width: 28.125vw;
+    height: 46.875vw;
+    background-size: 333.333% 88.889%;
+    background-position: left top;
+  }
+
+  body > .kibele-svg-container {
+    position: absolute;
+    left: var(--detail-title-left);
+    top: 3.966042vw;
+    width: var(--detail-title-width);
+    max-width: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .kibele-svg-container > svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  body > .kybele_aciklama {
+    position: absolute;
+    left: var(--detail-copy-left);
+    top: var(--detail-copy-top);
+    right: auto;
+    width: min(var(--detail-copy-width), calc(100vw - var(--detail-copy-left) - 16px));
+    max-width: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding-left: var(--detail-copy-pad-left);
+    padding-right: var(--detail-copy-pad-right);
+    font-size: clamp(13px, 1.145833vw, 22px);
+  }
+
+  body > .ic_anadolu_bolgesi {
+    position: absolute;
+    left: 50%;
+    bottom: 1.5625vw;
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 8px;
+    transform: translateX(-50%);
+    font-size: clamp(12px, 0.868073vw, 16.667px);
+  }
+
+  body > .back-to-menu {
+    right: clamp(12px, 2.083333vw, 40px);
+    bottom: clamp(12px, 2.083333vw, 40px);
+    max-width: calc(100vw - 32px);
+  }
+}
+
+/* Narrow and portrait screens use a readable vertical flow. */
+@media (max-width: 720px), (orientation: portrait) {
+  html,
+  body {
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body > img {
+    display: block;
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100vw;
+    max-width: none;
+    height: auto;
+    margin: 0;
+  }
+
+  body > .kibele {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(72vw, 540px);
+    margin: 20px auto 0;
+    background-position: left top;
+  }
+
+  body[data-detail-page="ic-anadolu"] > .kibele {
+    height: auto;
+    aspect-ratio: 540 / 761;
+    background-size: 100% 100%;
+  }
+
+  body[data-detail-page="ege"] > .kibele {
+    height: auto;
+    aspect-ratio: 540 / 900;
+    background-size: 333.333% 88.889%;
+  }
+
+  body > .kibele-svg-container {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: min(1000px, calc(100vw - 32px));
+    max-width: none;
+    height: auto;
+    margin: 12px auto 0;
+  }
+
+  .kibele-svg-container > svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  body > .kybele_aciklama {
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    width: calc(100vw - 32px);
+    max-width: 760px;
+    box-sizing: border-box;
+    margin: 12px auto 24px;
+    padding: 0;
+    font-size: clamp(15px, 4vw, 18px);
+  }
+
+  body > .ic_anadolu_bolgesi {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
+    margin: 0 auto 96px;
+    padding: 0 8px;
+    transform: none;
+    font-size: clamp(12px, 4vw, 16.667px);
+  }
+
+  body > .back-to-menu {
+    right: clamp(12px, 2.083333vw, 40px);
+    bottom: clamp(12px, 2.083333vw, 40px);
+    max-width: calc(100vw - 24px);
+  }
+}
+body[data-detail-page="akdeniz"] {
+  --detail-title-left: 51.822917vw;
+  --detail-title-width: 62.500000vw;
+  --detail-copy-left: 41.666667vw;
+  --detail-copy-top: 21.614583vw;
+  --detail-copy-width: 54.166667vw;
+  --detail-copy-pad-left: 1.041667vw;
+  --detail-copy-pad-right: 1.041667vw;
+}
+body[data-detail-page="dogu-anadolu"] {
+  --detail-title-left: 55.729167vw;
+  --detail-title-width: 62.500000vw;
+  --detail-copy-left: 33.854167vw;
+  --detail-copy-top: 20.572917vw;
+  --detail-copy-width: 66.666667vw;
+  --detail-copy-pad-left: 2.083333vw;
+  --detail-copy-pad-right: 2.083333vw;
+}
+body[data-detail-page="ege"] {
+  --detail-title-left: 60.937500vw;
+  --detail-title-width: 52.083333vw;
+  --detail-copy-left: 52.083333vw;
+  --detail-copy-top: 23.437500vw;
+  --detail-copy-width: 42.708333vw;
+  --detail-copy-pad-left: 0.000000vw;
+  --detail-copy-pad-right: 1.041667vw;
+}
+body[data-detail-page="guneydogu"] {
+  --detail-title-left: 55.729167vw;
+  --detail-title-width: 62.500000vw;
+  --detail-copy-left: 33.854167vw;
+  --detail-copy-top: 20.572917vw;
+  --detail-copy-width: 66.666667vw;
+  --detail-copy-pad-left: 2.083333vw;
+  --detail-copy-pad-right: 2.083333vw;
+}
+body[data-detail-page="ic-anadolu"] {
+  --detail-title-left: 66.145833vw;
+  --detail-title-width: 41.666667vw;
+  --detail-copy-left: 52.083333vw;
+  --detail-copy-top: 23.437500vw;
+  --detail-copy-width: 42.708333vw;
+  --detail-copy-pad-left: 0.000000vw;
+  --detail-copy-pad-right: 1.041667vw;
+}
+body[data-detail-page="karadeniz"] {
+  --detail-title-left: 42.730573vw;
+  --detail-title-width: 104.166667vw;
+  --detail-copy-left: 33.854167vw;
+  --detail-copy-top: 21.614583vw;
+  --detail-copy-width: 66.666667vw;
+  --detail-copy-pad-left: 2.083333vw;
+  --detail-copy-pad-right: 2.083333vw;
+}
+body[data-detail-page="marmara"] {
+  --detail-title-left: 55.729167vw;
+  --detail-title-width: 62.500000vw;
+  --detail-copy-left: 41.666667vw;
+  --detail-copy-top: 21.614583vw;
+  --detail-copy-width: 54.166667vw;
+  --detail-copy-pad-left: 1.041667vw;
+  --detail-copy-pad-right: 1.041667vw;
+}
